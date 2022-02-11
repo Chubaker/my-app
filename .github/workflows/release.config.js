@@ -1,5 +1,4 @@
 module.exports = {
-  branches: "main",
   repositoryURL: "https://github.com/Chubaker/my-app",
   plugins: [
     '@semantic-release/commit-analyzer', 
