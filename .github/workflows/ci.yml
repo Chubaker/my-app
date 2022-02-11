@@ -2,9 +2,9 @@ name: CI
 
 on:
     pull_request:
-        branches: [develop]
+        branches: [develop, main]
     push:
-        branches: [develop]
+        branches: [develop, main]
 
 jobs:
     build:
@@ -44,6 +44,11 @@ jobs:
                 path: build
             #- name: Download Artifact
             - run: npm install -g surge
+            - name: Create a Release
+              if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+              run: npx semantic-release
+              env:
+                GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             - name: Deploy to Staging via surge
               if: github.event_name == 'push'
               run: surge --project ./build --domain longing-pull.surge.sh
