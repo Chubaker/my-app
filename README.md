@@ -1,3 +1,5 @@
+![](https://github.com/Chubaker/my-app/workflows/CI/badge.svg?branch=main&event=push)
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
